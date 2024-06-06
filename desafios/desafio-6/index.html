@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS D6</title>
+</head>
+<body>
+    <h1>Conversor de temperaturas</h1>
+    <button onclick="clic()">Converter</button>
+    <p>Clique no botão acima para iniciar.</p>
+
+    <script>
+        function clic() {
+            let c = Number(window.prompt('digite uma tempeatura em ºC (Celsius)'))
+
+            let f = (c * 9/5) + 32
+
+            let k = c + 273.15
+
+            document.write(`${c}ºC em Fahrenheit é ${f}F<br>`)
+            document.write(`${c}ºC em Kelvin é ${k}K`)
+
+        }
+    </script>
+    
+</body>
+</html>

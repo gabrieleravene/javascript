@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS D4</title>
+</head>
+<body>
+    <h1>Calculando o troco</h1>
+
+    <button onclick="clic()">Comprar produto</button>
+
+    <script>
+
+        function clic() {
+            let produto = window.prompt('que produto vc está comprando?')
+
+            let preco = Number(window.prompt(`qual o preço do ${produto}?`))
+
+            let pag = Number(window.prompt(`qual valor que vc deu para pagar o ${produto}?`))
+
+            let troco = preco - pag
+
+            window.alert(`vc comprou um ${produto} que custou ${preco}. deu ${pag} em dinheiro e vai receber em troco ${troco}.`)
+
+        }
+
+    </script>
+
+</body>
+</html>

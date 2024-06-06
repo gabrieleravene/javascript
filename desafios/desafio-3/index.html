@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS D3</title>
+
+    <style>
+        body{
+            font-family: monospace;
+            background-color: rgb(241, 196, 241);
+            text-align: center;
+        }
+
+        button{
+            width: 150px;
+            height: 90px;
+            border-radius: 10px;
+            font-size: 1em;
+        }
+
+        h1, h2{
+            margin-top: 40px;
+        }
+    </style>
+
+
+</head>
+<body>
+    <h1>Terceiro desafio de JS</h1>
+    <h2>Antes e depois</h2>
+    <p></p>
+    <button onclick="clicar()">Antecessor e Sucessor</button>
+
+    <script>
+
+        function clicar() {
+            let num = Number(window.prompt('Digite um número'))
+        let n1 = num - 1
+        let n2 = num + 1
+        window.alert(`O antecessor de ${num} é ${n1}. O sucessor de ${num} é ${n2}.`)
+        }
+
+        // as variáveis devem estar dentro da função que é delimitada pelos colchetes {} para o código funcionar!!!!
+
+    </script>
+    
+</body>
+</html>

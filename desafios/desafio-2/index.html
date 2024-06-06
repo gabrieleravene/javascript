@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 3</title>
+
+    <style>
+        body{
+            background-color: pink;
+            text-align: center;
+        }
+
+        h1{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        button{
+            width: 200px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Desafio de boas-vindas</h1>
+
+    <button onclick="clicou()">Inicie o desafio</button>
+
+    <script>
+        function clicou(){
+            let  nome = window.prompt('Qual é o seu nome?')
+            let idade = window.prompt('Qual é a sua idade?')
+            window.alert(`Acabei de conhecer ${nome} que tem ${idade} anos.`)
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS D5</title>
+</head>
+<body>
+    <h1>conversor de medidas</h1>
+
+    <button onclick="clic()">converter</button>
+
+    <p>clique no botão acima para iniciar</p>
+
+    <script>
+        function clic() {
+            let dist = Number(window.prompt('digite uma distância em metros (m)'))
+            
+            let km = dist / 1000
+
+            document.write(`A distância de ${dist} metros (m) corresponde a... <br><br>`)
+
+            document.write(`${km} quilômetros (km)<br>`)
+
+            let cm = dist * 100
+
+            document.write(`${cm} centímetros (cm)<br>`)
+
+            let mm = dist * 1000
+
+            document.write(`${mm} milímetros (mm)`)
+
+        }
+
+        /*    <script>
+        var nome = window.prompt('qual é o seu nome?')
+        document.write(`olá <strong>${nome}</strong>, seu nome tem ${nome.length} letras<br>`)
+        document.write(`seu nome em maiúsculas é ${nome.toUpperCase()}<br>`)
+        document.write(`seu nome em minúscula é ${nome.toLocaleLowerCase()}`) */
+
+
+    </script>
+
+    </script>
+
+ 
+    
+</body>
+</html>
