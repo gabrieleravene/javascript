@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reajuste salarial</title>
+</head>
+<style>
+    body{
+        font-family: sans-serif;
+    }
+
+    button{
+        padding: 15px;
+    }
+</style>
+<body>
+    <div id="container">
+        <h1>Reajuste salarial</h1>
+        <button id="botaoReajuste">Reajustar salário</button>
+        <p id="res">Clique no botão acima para iniciar.</p>
+    </div>
+
+    <script>
+        document.getElementById('botaoReajuste').addEventListener('click', clicar)
+
+        function clicar(){
+            let nome = prompt('Qual o nome do funcionário?')
+            let salario = prompt(`Qual o salário de ${nome}?`)
+            let reajuste = prompt(`O salário de ${nome} vai ser reajustado em qual porcentagem?`)
+            let res = document.querySelector("#res")
+
+            let salarioAtual = Number(salario)
+            let reajustePorcentagem = Number(reajuste)
+
+            if(isNaN(salarioAtual) || isNaN(reajustePorcentagem) || salarioAtual == 0 || reajustePorcentagem == 0){
+                alert('Digite um valor válido realizar o reajuste.')
+            } else {
+                let reajusteValor = salarioAtual * (reajustePorcentagem / 100)
+                let salarioComReajuste = salarioAtual + reajusteValor 
+
+                res.textContent = `O salário atual era R$ ${salarioAtual}.`
+                res.textContent += ` Com um aumento de ${reajustePorcentagem}%, o salário vai aumentar em R$ ${reajusteValor} no próximo mês.`
+                res.textContent += ` E a partir aí, ${nome} vai passar a ganhar R$ ${salarioComReajuste}.`
+            }
+        }
+    </script>
+    
+</body>
+</html>

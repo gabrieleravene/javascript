@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ano bissexto</title>
+</head>
+<style>
+    body{
+        font-family: sans-serif;
+    }
+
+    button{
+        padding: 15px;
+    }
+</style>
+<body>
+    <div id="container">
+        <h1>Ano Bissexto</h1>
+        <button id="botaoVerificar">Verificar</button>
+        <p id="res">Informe um ano para saber se ele é bissexto.</p>
+    </div>
+
+    <script>
+        document.getElementById('botaoVerificar').addEventListener('click', verificar) // elemento botão é pelo pelo ID e é adicionado o evento onclick="()" que dispara uma função ao clicar
+
+        function verificar(){
+            let ano = prompt('Digite um ano.') // pede para o usuário digitar um número
+            let res = document.getElementById('res') // local onde será
+
+            let anoX = Number(ano) // conversão de string para número
+
+            if (isNaN(anoX) || anoX < 0){ // condição verifica se valor inserido é válido. função isNaN() verifica se o valor não é um número. operador de comparação < verifica se o valor inserido é menor do que 0.
+                alert('Digite um ano válido (número inteiro positivo).') // se for retornada TRUE a alguma das condições estabelecidas, será exibido um aviso ao usuário pedindo que ele insira um valor válido
+            } else if (anoX % 4 === 0 && (anoX % 100 !== 0 || anoX % 400 === 0)) { // se o resto da divisão do valor por 4 for igual a 0 e o resto da divisão por 100 não for igual a 0 ou o resto da divisão por 400 for igual a 0, então o ano é bissexto. anos bissextos não são diviseis por 100, a menos que seja divisivel também por 400.
+                res.textContent = "É um ano bissexto." // é exibido uma mensagem ao usuário informando que o ano é bissexto
+            } else { // se não, o ano não é bissexto
+                res.textContent = "Não é um ano bissexto." // é exibido uma mensagem ao usuário informando que o ano não é bissexto
+            }
+        }
+    </script>
+    
+</body>
+</html>

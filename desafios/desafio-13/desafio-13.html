@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Situação do aluno</title>
+</head>
+<style>
+    body{
+        font-family: sans-serif;
+    }
+
+    button{
+        padding: 10px;
+    }
+</style>
+<body>
+    <div id="container">
+        <h1>Situação do aluno</h1>
+        <button id="calcularNota">Informe as notas</button>
+        <p id="res">Clique no botão para informar as notas do aluno.</p>
+    </div>
+
+    <script>
+        document.getElementById('calcularNota').addEventListener('click', calcular)
+
+        function calcular(){
+            let nome = prompt('Qual o nome do aluno?')
+            let nota1 = Number(prompt(`Primeira nota de ${nome}`))
+            let nota2 = Number(prompt(`Segunda nota de ${nome}`))
+            let res = document.getElementById('res')
+            let cont = res.parentElement 
+
+            let media = (nota1 + nota2) / 2
+
+            if(isNaN(nota1) || isNaN(nota2) || nota1 < 0 || nota1 > 10 || nota2 < 0 || nota2 > 10 || nota1 === 0 || nota2 === 0){ 
+                alert('Digite um número de 0 a 10.')
+            } else if (media=>6){
+                let h2 = document.createElement("h2")
+                h2.textContent = `Analisando a situação ${nome}...`
+                document.body.appendChild(h2)
+                cont.insertBefore(h2, res)
+                res.textContent = `Com as notas ${nota1} e ${nota2}, a média é ${media}. Com a média acima de 6,0, o aluno está APROVADO.`
+            } else if (media=>3 || media<=6){
+                res.textContent = `Com as notas ${nota1} e ${nota2}, a média é ${media}. Com média entre 3,0 e 6,0, o aluno está em RECUPERAÇÃO.`
+            } else {
+                res.textContent = `Com as notas ${nota1} e ${nota2}, a média é ${media}. Com média abaixo de 3,0, o aluno está REPROVADO.`
+            }
+
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor Monetário</title>
+</head>
+<style>
+    body{
+        font-family: sans-serif;
+    }
+
+    button{
+        padding: 15px;
+    }
+</style>
+<body>
+    <div id="container">
+        <h1>Conversor R$ → US$</h1>
+        <button onclick="clique()">Converter</button>
+        <p id="res">Clique no botão acima para iniciar.</p>
+    </div>
+
+    <script>
+        let cotacaodolar = prompt('Qual a cotação do dolar hoje?')
+
+        function clique(){
+            let valorreal = prompt('Qual valor você possui em R$?')
+            let res = document.querySelector("#res")
+            let cont = res.parentElement
+
+            if (valorreal == 0){
+                alert('Digite um valor para realizar a conversão.')
+            } else {
+                let real = Number(valorreal)
+                let dolar = Number(cotacaodolar)
+                let h3 = document.createElement("h3")
+                h3.textContent = "Convertendo..."
+                document.body.appendChild(h3)
+                cont.insertBefore(h3, res)
+
+                let conversao = real / dolar
+                res.innerHTML = `Com R$${real} você pode comprar US$${conversao}.`
+            }
+        }
+
+    </script>
+</body>
+</html>

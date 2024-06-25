@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fórmula de Bhaskara</title>
+</head>
+<style>
+    body{
+        font-family: sans-serif;
+    }
+
+    button{
+        padding: 15px;
+    }
+</style>
+<body>
+    <div id="container">
+        <h1>Resolvendo Bhaskara</h1>
+        <button id="calcularBhaskara">Calcular</button>
+        <p id="res">Considerando uma equação no formato <em> <strong>a</strong>x<sup>2</sup> + <strong>b</strong>x + <strong>c</strong> = 0</em>, aperte o botão acima para calcular o valor de Δ.</p>
+    </div>
+
+    <script>
+        document.getElementById('calcularBhaskara').addEventListener('click', calcular) // elemento botão é pego pelo ID e é adicionado a ele a função onclick="calcular()", que executa uma função ao clicar 
+
+        function calcular(){
+            let a = prompt('Qual é o valor de a?') // pergunta ao usuário o valor do coefiente A
+            let b = prompt('Qual é o valor de b?')  // pergunta ao usuário o valor do coefiente B
+            let c = prompt('Qual é o valor de c?')  // pergunta ao usuário o valor do coefiente C
+            let res = document.getElementById('res') // área para exibição de resposta da equação
+
+            let valorA = Number(a) // conversão de string para número
+            let valorB = Number(b) // conversão de string para número
+            let valorC = Number(c) // conversão de string para número
+
+            if(isNaN(valorA) || isNaN(valorB) || isNaN(valorC) || valorA === 0){ // verifica se os valores dos coeficiente são número válidos e se o valor do coeficiente a é diferente de 0, pois isso invalidaria a equação quadrática. função isNaN() verifica se as valores fornecidos não são números. o operador === de igualdade verifica se o valor do coefiente a é igual 0.
+                alert('Digite um valor válido para realizar o cálculo.') // se for retornado TRUE a alguma das condições estabelecidas, os dados são inválidos e aparece um aviso que orienta o usuário a inserir valores válidos para poder prosseguir com o cálculo
+                return
+            }
+
+            let valorDelta = (valorB ** 2) - (4 * valorA * valorC)
+
+            if (valorDelta > 0) { // se delta for maior do que 0, então a equação possui duas raízes distintas
+                let valorX1 = (-valorB + Math.sqrt(valorDelta)) / (2 * valorA) // atribuição da variável da primeira raiz
+                let valorX2 = (-valorB - Math.sqrt(valorDelta)) / (2 * valorA) // atribuição da variável da segunda raiz
+                res.textContent = `As raízes da equação são ${valorX1} e ${valorX2}.` // resultado é exibido ao usuário
+            } else if (valorDelta === 0) { // se delta for igual a 0, então a equação possui uma raiz real dupla
+                let valorX = -valorB / (2 * valorA) // atribuição da variável da raiz da equação
+                res.textContent = `A raiz da equação é ${valorX}.` // resultado é exibido ao usuário
+            }
+        } 
+    </script>
+    
+</body>
+</html>

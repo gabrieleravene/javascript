@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preço mudou</title>
+</head>
+<style>
+    body{
+        font-family: sans-serif;
+    }
+
+    button{
+        padding: 15px;
+    }
+</style>
+<body>
+    <div id="container">
+        <h1>Preço mudou</h1>
+        <button id="verificarPreco">Verificar</button>
+        <p id="res">Clique no botão acima para analisar a mudança de preço.</p>
+    </div>
+
+    <script>
+        document.getElementById('verificarPreco').addEventListener('click', verificar)
+
+        function verificar(){
+            let preco1 = prompt('Qual era o preço anterior do produto?')
+            let preco2 = prompt('Qual o preço atual do produto?')
+            let res = document.getElementById('res')
+
+            let precoAntes = Number(preco1)
+            let precoDepois = Number(preco2)
+
+            if (isNaN(precoAntes) || isNaN(precoDepois)){
+                alert('Digite valores válidos para realizar a verifição.')
+            } else if (precoAntes < precoDepois) {
+                let diferencaPreco = precoDepois - precoAntes
+                let porcentagem = (diferencaPreco / precoDepois) * 100
+                res.textContent = `O produto custava R$ ${precoAntes} e agora custa R$ ${precoDepois}.`
+                res.textContent += ` Hoje o produto está mais caro.`
+                res.textContent += ` O preço subiu de R$ ${diferencaPreco} em relação ao preço anterior.`
+                res.textContent += ` Uma variação ${porcentagem}% de pra cima.`
+            } else {
+                let diferencaPreco2 = precoAntes - precoDepois
+                let porcentagem2 = (diferencaPreco2 / precoAntes) * 100
+                res.textContent = `O produto custava R$ ${precoAntes} e agora custa R$ ${precoDepois}. Hoje o produto está mais barato. O preço caiu R$ ${diferencaPreco2} em relação ao preço anterior. Uma variação de ${porcentagem2}% pra baixo.`
+            }
+        }
+
+    </script>
+    
+</body>
+</html>
